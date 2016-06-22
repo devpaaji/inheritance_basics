@@ -1,0 +1,51 @@
+</doctype html>
+
+<head>
+
+</head>
+
+<body>
+
+
+<p> Create two constructor functions person and student.
+2. Create a property for person.
+3. Inherit the property of the function person into student.
+4. Now change the property in student function.
+</p>
+
+<script>
+
+//Create two constructor functions person 
+
+// Create a property for person.
+
+function Person(name){
+	this.name = name;
+}
+
+//Create two constructor function student. 
+
+function Student(){}
+
+//Inherit the property of the function person into student. 
+
+Student.prototype = new Person();
+
+// Now change the property in student function.
+
+var x = new Student();
+
+x.name = "rahul";
+
+console.log(x.name);
+
+x.name = "jason";
+
+console.log(x.name);
+
+
+</script>
+
+</body>
+
+</html>

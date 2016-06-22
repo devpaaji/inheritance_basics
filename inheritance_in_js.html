@@ -1,0 +1,113 @@
+</doctype html>
+
+<head>
+
+</head>
+
+<body>
+
+
+
+<script>
+
+//http://codingforeveryone.foundersandcoders.org/JavaScript/prototypes-more.html
+
+//Vehicle would be the Parent Class with following attributes: o Name
+//o Description
+//o Vehicle Type
+//o Cost Per Kilometer
+
+// function Vehicle(name, description, type, kilometer){
+
+//  	this.name = name;
+//  	this.description = description;
+//  	this.type = type;
+//  	this.kilometer = kilometer;
+
+//  }
+
+ var Vehicle = function() {
+
+
+ };
+
+ Vehicle.prototype = {
+   	 name: 'Default', 
+     description: 'Default',
+     type: "Default",
+     kilometer: 5
+ };
+
+//Vehicle class will be inherited by Two Class or Functions such as : Two Wheeler  Four Wheeler
+function TwoWheeler(){
+
+}
+
+function FourWheeler(){
+
+}
+
+
+// this is how inheritance works
+TwoWheeler.prototype = new Vehicle();
+FourWheeler.prototype = new Vehicle();
+
+
+
+
+
+// add new prop in fouwheeler
+
+var x  = new FourWheeler();
+
+x.name = "sbxns";
+x.description = "hsbx";
+x.type = "a";
+x.kilometer = 6;
+
+//x.fuel = "CNG";
+
+//console.log(x.fuel);
+console.log(x.name);
+
+// second method of achieveing this is like this
+
+   // function Vehicle(name, description, type, kilometer)
+   //      {
+   //          console.log("In Vehicle constructor");
+   //          this.name = name;
+   //          this.description = description;
+   //          this.type = type;
+   //          this.kilometer = kilometer;
+   //      }
+
+   //      //Vehicle class will be inherited by Two Class or Functions such as : Two Wheeler  Four Wheeler
+   //      function TwoWheeler() { };
+
+
+   //      function FourWheeler(name,description,type,kilometer)
+        	//the FourWheeler constructor is called, there is no way for JavaScript to call the Vehicle constructor and pass the values.  So, as a result the variable x is not initialized with any value.
+        {
+            FourWheeler.prototype.constructor.call(this,name, description, type, kilometer);
+        };
+
+
+        // this is how inheritance works
+        TwoWheeler.prototype = new Vehicle();
+        FourWheeler.prototype = new Vehicle();
+
+        // add new prop in fouwheeler
+        var x = new FourWheeler("asbx", "asbxn", "mnsxnsmax", 5);
+
+        x.fuel = "CNG";
+
+        console.log(x.name);
+
+
+
+
+</script>
+
+</body>
+
+</html>
